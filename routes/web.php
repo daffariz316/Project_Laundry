@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Admin.dashboard');
+    return view('User.dashboard');
 });
+
+//admin routes
+Route::get('/admin', [DashboardController::class, 'adminDashboard']);
+Route::get('/Waiting', [DashboardController::class, 'loadWaiting']);
+Route::get('/Pengguna', [DashboardController::class, 'loadPengguna']);
+Route::get('Akun_admin', [DashboardController::class, 'loadAkunAdmin']);

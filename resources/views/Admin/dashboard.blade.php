@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="yuma-icon" sizes="76x76" href="./assets/img/icon.png" />
-    <link rel="icon" type="image/png" href="./assets/img/icon.jpg" />
+    <link rel="yuma-icon" sizes="76x76" href="{{ asset('assets/img/icon.jpg') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/icon.jpg') }}" />
     <title>Yuma Lundry</title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -13,10 +13,11 @@
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
-    <link href="./assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5" rel="stylesheet" />
+    <link href="{{ asset('assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5') }}" rel="stylesheet" />
     <!-- box icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <!-- chart js -->
+    <link  rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"/>
   </head>
 
   <body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500">
@@ -26,7 +27,6 @@
         <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
         <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="#" target="_blank">
           <img src="./assets/img/Yuma.png" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
-          <span class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Yuma Laundry</span>
         </a>
       </div>
 
@@ -36,28 +36,19 @@
         <ul class="flex flex-col pl-0 mb-0">
           <li class="mt-0.5 w-full">
             <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors" href="./pages/dashboard.html">
-              <div class="bg-gradient-to-tl from-purple-700 to-Cyan-400 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <i class='bx bxs-dashboard'></i>
+              <div class="bg-gradient-to-tl from-blue-600 to-cyan-400 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                <i class='bx bxs-dashboard text-white'></i>
               </div>
               <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Dashboard</span>
             </a>
           </li>
 
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="./pages/tables.html">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/Waiting') }}">
               <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bx-spreadsheet' ></i>
               </div>
               <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Waiting List</span>
-            </a>
-          </li>
-
-          <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="./pages/billing.html">
-              <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-                <i class='bx bx-money'></i>
-              </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">List Biaya dan Kuantitas</span>
             </a>
           </li>
           <li class="w-full mt-4">
@@ -65,11 +56,29 @@
           </li>
 
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="./pages/profile.html">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/Pengguna') }}">
               <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <i class='bx bxs-user-detail'></i>
+                <i class='bx bxs-user'></i>
               </div>
               <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Akun Pengguna</span>
+            </a>
+          </li>
+
+          <li class="mt-0.5 w-full">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/Akun_admin') }}">
+              <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                <i class='bx bx-user' ></i>
+              </div>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Akun Admin</span>
+            </a>
+          </li>
+
+          <li class="mt-0.5 w-full">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="./pages/profile.html">
+              <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                <i class='bx bx-log-out'></i>
+              </div>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">logout</span>
             </a>
           </li>
         </ul>
@@ -135,7 +144,7 @@
                     </div>
                   </div>
                   <div class="px-3 text-right basis-1/3">
-                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-blue-600 to-cyan-400">
                       <i class="bx bx-money text-lg relative top-3.5 text-white"></i>
                     </div>
                   </div>
@@ -159,7 +168,7 @@
                     </div>
                   </div>
                   <div class="px-3 text-right basis-1/3">
-                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-blue-600 to-cyan-400">
                       <i class="bx bx-user text-lg relative top-3.5 text-white"></i>
                     </div>
                   </div>
@@ -167,54 +176,52 @@
               </div>
             </div>
           </div>
-        <div class="flex flex-col min-h-screen">
-            <main class="flex-grow">
-              <!-- Content of your page goes here -->
-            </main>
-        <footer class="pt-4 mt-auto">
-            <div class="w-full px-6 mx-auto">
-              <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
-                <div class="w-full max-w-full px-3 mt-0 mb-6 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
-                  <div class="text-sm leading-normal text-center text-slate-500 lg:text-left">
-                    ©
-                    <script>
-                      document.write(new Date().getFullYear() + ",");
-                    </script>
-                    Yuma Laundry. All rights reserved.
-
-                  </div>
-                </div>
-                <div class="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
-                  <ul class="flex flex-wrap justify-center pl-0 mb-0 list-none lg:justify-end">
-                    <li class="nav-item">
-                      <a href="https://www.creative-tim.com" class="block px-4 pt-0 pb-1 text-sm font-normal transition-colors ease-soft-in-out text-slate-500" target="_blank">Creative Tim</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="https://www.creative-tim.com/presentation" class="block px-4 pt-0 pb-1 text-sm font-normal transition-colors ease-soft-in-out text-slate-500" target="_blank">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="https://creative-tim.com/blog" class="block px-4 pt-0 pb-1 text-sm font-normal transition-colors ease-soft-in-out text-slate-500" target="_blank">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="https://www.creative-tim.com/license" class="block px-4 pt-0 pb-1 pr-0 text-sm font-normal transition-colors ease-soft-in-out text-slate-500" target="_blank">License</a>
-                    </li>
-                  </ul>
-                </div>
+      </div>
+      <!-- Footer -->
+      <footer class="pt-4">
+        <div class="w-full px-6 mx-auto">
+          <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
+            <div class="w-full max-w-full px-3 mt-0 mb-6 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
+              <div class="text-sm leading-normal text-center text-slate-500 lg:text-left">
+                ©
+                <script>
+                  document.write(new Date().getFullYear() + ",");
+                </script>
+               Yuma Laundry. All rights reserved.
               </div>
             </div>
-          </footer>
-      </div>
+            <div class="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
+              <ul class="flex flex-wrap justify-center pl-0 mb-0 list-none lg:justify-end">
+                <li class="nav-item">
+                  <a href="#" class="block px-4 pt-0 pb-1 text-sm font-normal transition-colors ease-soft-in-out text-slate-500" target="_blank">Numeros</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="block px-4 pt-0 pb-1 text-sm font-normal transition-colors ease-soft-in-out text-slate-500" target="_blank">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="block px-4 pt-0 pb-1 text-sm font-normal transition-colors ease-soft-in-out text-slate-500" target="_blank">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="block px-4 pt-0 pb-1 pr-0 text-sm font-normal transition-colors ease-soft-in-out text-slate-500" target="_blank">License</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
       <!-- end cards -->
     </main>
   </body>
+  <script src="{{ asset('assets/js/charts-pie.js') }}"></script>
   <!-- plugin for charts  -->
-  <script src="./assets/js/plugins/chartjs.min.js" async></script>
+  <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}" async></script>
   <!-- plugin for scrollbar  -->
-  <script src="./assets/js/plugins/perfect-scrollbar.min.js" async></script>
+  <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}" async></script>
   <!-- github button -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- main script file  -->
-  <script src="./assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5" async></script>
+  <script src="{{asset('assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5')}}" async></script>
   <!-- box icon  -->
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.5/dist/chart.umd.min.js"></script>
 </html>
