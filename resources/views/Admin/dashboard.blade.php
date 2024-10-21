@@ -25,8 +25,8 @@
     <aside class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
       <div class="h-19.5">
         <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
-        <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="#" target="_blank">
-          <img src="./assets/img/Yuma.png" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
+        <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="{{ url('/admin') }}">
+          <img src="{{ asset('assets/img/yuma.png') }}" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
         </a>
       </div>
 
@@ -106,12 +106,6 @@
               </div>
             </div>
             <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-              <li class="flex items-center">
-                <a href="./pages/sign-in.html" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500">
-                  <i class="bx bxs-user sm:mr-1"></i>
-                  <span class="hidden sm:inline">Sign In</span>
-                </a>
-              </li>
               <li class="flex items-center pl-4 xl:hidden">
                 <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" sidenav-trigger>
                   <div class="w-4.5 overflow-hidden">
@@ -121,6 +115,7 @@
                   </div>
                 </a>
               </li>
+            </ul>
       </nav>
 
       <!-- end Navbar -->
@@ -129,30 +124,6 @@
       <div class="w-full px-6 py-6 mx-auto">
         <!-- row 1 -->
         <div class="flex flex-wrap -mx-3">
-          <!-- card1 -->
-          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-              <div class="flex-auto p-4">
-                <div class="flex flex-row -mx-3">
-                  <div class="flex-none w-2/3 max-w-full px-3">
-                    <div>
-                      <p class="mb-0 font-sans text-sm font-semibold leading-normal">Today's Money</p>
-                      <h5 class="mb-0 font-bold">
-                        $53,000
-                        <span class="text-sm leading-normal font-weight-bolder text-lime-500">+55%</span>
-                      </h5>
-                    </div>
-                  </div>
-                  <div class="px-3 text-right basis-1/3">
-                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-blue-600 to-cyan-400">
-                      <i class="bx bx-money text-lg relative top-3.5 text-white"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- card2 -->
           <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
@@ -160,10 +131,9 @@
                 <div class="flex flex-row -mx-3">
                   <div class="flex-none w-2/3 max-w-full px-3">
                     <div>
-                      <p class="mb-0 font-sans text-sm font-semibold leading-normal">Today's Users</p>
+                      <p class="mb-0 font-sans text-sm font-semibold leading-normal">Jumlah user</p>
                       <h5 class="mb-0 font-bold">
                         2,300
-                        <span class="text-sm leading-normal font-weight-bolder text-lime-500">+3%</span>
                       </h5>
                     </div>
                   </div>
@@ -176,6 +146,38 @@
               </div>
             </div>
           </div>
+      </div>
+      <div class="p-6 pb-2 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+        <h6>Waiting table</h6>
+      </div>
+      <div class="flex-auto px-0 pt-0 pb-2">
+        <div class="p-0 overflow-x-auto">
+          <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+            <thead class="align-bottom">
+              <tr>
+                <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Number</th>
+                <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Nama Pelanggan</th>
+                <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Nama Barang</th>
+                <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Status</th>
+                <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Tanggal Selesai</th>
+                <th class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-gray-200 border-solid shadow-none tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-6 py-4 text-sm">1</td>
+                <td class="px-6 py-4 text-sm">Joko</td>
+                <td class="px-6 py-4 text-sm">Kemeja</td>
+                <td class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                  <span class="bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Selesai</span>
+                </td>
+                <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                    <span class="text-xs font-semibold leading-tight text-slate-400">04/05/18</span>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <!-- Footer -->
       <footer class="pt-4">

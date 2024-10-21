@@ -22,7 +22,7 @@
     <aside class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
         <div class="h-19.5">
             <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
-            <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="{{ url('/admin') }}">
+            <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="{{ url('/admin') }}" >
               <img src="{{ asset('assets/img/yuma.png') }}" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
             </a>
           </div>
@@ -41,12 +41,12 @@
           </li>
 
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors" href="{{ url('/Waiting') }}">
-              <div class="bg-gradient-to-tl  from-blue-600 to-cyan-400 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <i class='bx bx-spreadsheet text-white' ></i>
-              </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Waiting List</span>
-            </a>
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/admin') }}">
+                <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class='bx bx-spreadsheet' ></i>
+                </div>
+                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Waiting List</span>
+              </a>
           </li>
           <li class="w-full mt-4">
             <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase opacity-60">Account pages</h6>
@@ -54,19 +54,19 @@
 
           <li class="mt-0.5 w-full">
             <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/Pengguna') }}">
-              <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <i class='bx bxs-user'></i>
-              </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Akun Pengguna</span>
-            </a>
+                <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                  <i class='bx bxs-user'></i>
+                </div>
+                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Akun Pengguna</span>
+              </a>
           </li>
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/Akun_admin') }}">
-              <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <i class='bx bx-user' ></i>
-              </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Akun Admin</span>
-            </a>
+            <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors" href="">
+                <div class="bg-gradient-to-tl  from-blue-600 to-cyan-400 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class='bx bx-user text-white'></i>
+                </div>
+                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Akun Admin</span>
+              </a>
           </li>
 
           <li class="mt-0.5 w-full">
@@ -85,7 +85,7 @@
         <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
           <nav>
             <!-- breadcrumb -->
-            <h6 class="mb-0 mt-6 font-bold capitalize">Waiting List</h6>
+            <h6 class="mb-0 mt-6 font-bold capitalize">Akun Admin</h6>
           </nav>
 
           <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -117,78 +117,43 @@
             <div class="flex-none w-full max-w-full px-3">
               <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                  <!-- Gunakan flex dan justify-between untuk menempatkan judul dan link di kanan -->
-                  <div class="flex justify-between items-center">
-                    <h6>Waiting table</h6>
-                    <a href="#" class="text-xs font-semibold leading-tight text-slate-400">Tambah</a>
-                  </div>
+                    <div class="flex justify-between items-center">
+                        <h6>Table Akun Admin</h6>
+                        <a href="#" class="text-xs font-semibold leading-tight text-slate-400">Tambah</a>
+                      </div>
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">
                   <div class="p-0 overflow-x-auto">
-                    <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
-                      <thead class="align-bottom">
-                        <tr>
-                          <!-- Kolom Tabel -->
-                          <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Number</th>
-                          <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Nama Pelanggan</th>
-                          <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Nama Barang</th>
-                          <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Kuantitas Barang</th>
-                          <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Status</th>
-                          <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Jenis Layanan</th>
-                          <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Tanggal Masuk</th>
-                          <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Tanggal Selesai</th>
-                          <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Action</th>
-                          <th class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-gray-200 border-solid shadow-none tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @foreach ($waiting as $key =>$item)
-                        <tr>
-                          <td class="px-6 py-4 text-sm">{{ $key + 1 }}</td>
-                          <td class="px-6 py-4 text-sm">{{$item ->nama_pelanggan}}</td>
-                          <td class="px-6 py-4 text-sm">{{$item ->nama_barang}}</td>
-                          <td class="px-6 py-4 text-center text-sm">{{$item ->kuantitas_barang}}</td>
-                          <td class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                            @if(isset($item->status))
-                                @php
-                                    $status = strtolower(trim($item->status)); // Menghilangkan spasi dan membuat huruf kecil
-                                @endphp
-
-                                @if($status == 'selesai')
-                                    <span class="bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{$item->status}}</span>
-                                @elseif($status == 'belum selesai')
-                                    <span class="bg-gradient-to-tl from-red-500 to-black px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{$item->status}}</span>
-                                @elseif($status == 'dalam antrian')
-                                    <span class=" bg-gradient-to-tl from-slate-600 to-slate-950 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{$item->status}}</span>
-                                @elseif($status == 'sedang proses')
-                                    <span class="bg-gradient-to-tl from-slate-600 to-slate-950 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{$item->status}}</span>
-                                @endif
-                            @endif
-                        </td>
-
-                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                            <span class="text-xs font-semibold leading-tight text-slate-400 ml-5">{{$item ->jenis_layanan}}</span>
-                          </td>
-                          <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                            <span class="text-xs font-semibold leading-tight text-slate-400">{{$item ->start_date}}</span>
-                          </td>
-                          <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                            <span class="text-xs font-semibold leading-tight text-slate-400">{{$item ->end_date }}</span>
-                          </td>
-                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                            <a href="javascript:;" class="text-xs font-semibold leading-tight text-slate-400"> Edit </a>
-                            <a href="javascript:;" class="text-xs font-semibold leading-tight text-red-500 ml-4">Delete</a>
-                          </td>
-                        </tr>
-                        @endforeach
-                      </tbody>
-                    </table>
+                      <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+                          <thead class="align-bottom">
+                              <tr>
+                                  <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xs tracking-wide whitespace-nowrap text-slate-400 opacity-70">Number</th>
+                                  <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xs tracking-wide whitespace-nowrap text-slate-400 opacity-70">Username</th>
+                                  <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xs tracking-wide whitespace-nowrap text-slate-400 opacity-70">Email</th>
+                                  <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xs tracking-wide whitespace-nowrap text-slate-400 opacity-70">Password</th>
+                                  <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xs tracking-wide whitespace-nowrap text-slate-400 opacity-70">Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($admin as $key => $item)
+                              <tr>
+                                  <td class="px-6 py-4 text-sm text-left">{{ $key + 1 }}</td>
+                                  <td class="px-6 py-4 text-sm text-left">Joko</td>
+                                  <td class="px-6 py-4 text-sm text-left">joko@gmail</td>
+                                  <td class="px-6 py-4 text-sm text-center">1234</td>
+                                  <td class="px-6 py-4 text-sm text-center">
+                                      <a href="javascript:;" class="text-xs font-semibold leading-tight text-blue-500">Edit</a>
+                                      <a href="javascript:;" class="text-xs font-semibold leading-tight text-red-500 ml-4">Delete</a>
+                                  </td>
+                              </tr>
+                              @endforeach
+                          </tbody>
+                      </table>
                   </div>
-                </div>
+              </div>
               </div>
             </div>
           </div>
-
         <footer class="pt-4 mt-auto">
             <div class="w-full px-6 mx-auto">
               <div class="flex flex-wrap items-center -mx-3 lg:justify-between">

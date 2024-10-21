@@ -22,7 +22,7 @@
     <aside class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
         <div class="h-19.5">
             <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
-            <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="#" target="_blank">
+            <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="{{ url('/admin') }}" >
               <img src="{{ asset('assets/img/yuma.png') }}" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
             </a>
           </div>
@@ -98,12 +98,6 @@
               </div>
             </div>
             <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-              <li class="flex items-center">
-                <a href="../pages/sign-in.html" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500">
-                  <i class="fa fa-user sm:mr-1" aria-hidden="true"></i>
-                  <span class="hidden sm:inline">Sign In</span>
-                </a>
-              </li>
               <li class="flex items-center pl-4 xl:hidden">
                 <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" sidenav-trigger>
                   <div class="w-4.5 overflow-hidden">
@@ -113,6 +107,7 @@
                   </div>
                 </a>
               </li>
+            </ul>
       </nav>
 
       <div class="w-full px-6 py-6 mx-auto">
@@ -122,7 +117,10 @@
           <div class="flex-none w-full max-w-full px-3">
             <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
               <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                <h6>Akun Pengguna </h6>
+                <div class="flex justify-between items-center">
+                    <h6>table pengguna</h6>
+                    <a href="#" class="text-xs font-semibold leading-tight text-slate-400">Tambah</a>
+                  </div>
               </div>
               <div class="flex-auto px-0 pt-0 pb-2">
                 <div class="p-0 overflow-x-auto">
@@ -138,17 +136,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($users as $key => $item)
                             <tr>
-                                <td class="px-6 py-4 text-sm text-left">1</td>
-                                <td class="px-6 py-4 text-sm text-left">Joko</td>
-                                <td class="px-6 py-4 text-sm text-left">joko@gmail.com</td>
-                                <td class="px-6 py-4 text-sm text-center">0901808108001804</td>
-                                <td class="px-6 py-4 text-sm text-center">1234</td>
+                                <td class="px-6 py-4 text-sm text-left">{{ $key + 1 }}</td>
+                                <td class="px-6 py-4 text-sm text-left">{{$item ->$username}}</td>
+                                <td class="px-6 py-4 text-sm text-left">{{$item -> $email}}</td>
+                                <td class="px-6 py-4 text-sm text-center">{{$item -> $nomor_hp}}</td>
+                                <td class="px-6 py-4 text-sm text-center">{{$item -> $password}}</td>
                                 <td class="px-6 py-4 text-sm text-center">
                                     <a href="javascript:;" class="text-xs font-semibold leading-tight text-blue-500">Edit</a>
                                     <a href="javascript:;" class="text-xs font-semibold leading-tight text-red-500 ml-4">Delete</a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
