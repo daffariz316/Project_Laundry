@@ -2,63 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function showAdminLoginForm()
-    {
-        return view('Admin.login');
-    }
-    public function showAdminRegisForm()
-    {
-        return view('Admin.register');
-    }
-
-    public function adminLogin(Request $request)
-    {
-        $credentials = $request->only('username', 'password');
-
-        if (Auth::guard('admin')->attempt($credentials)) {
-            // Ambil data admin yang berhasil login
-            $admin = Auth::guard('admin')->user();
-            // Simpan data admin ke dalam sesi
-            $request->session()->put('admin', $admin);
-
-            return redirect()->route('Admin.dashboard');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
-    }
-public function adminRegister(Request $request)
+    // Register function
+    public function register(Request $request)
     {
         $request->validate([
-            'username' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:admins',
-            'password' => 'required|string|min:8',
-            // Add other validation rules if needed
+            'username' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'phone_number' => 'required'
         ]);
 
-        $admin = new Admin();
-        $admin->username = $request->username;
-        $admin->email = $request->email;
-        $admin->password = Hash::make($request->password);
-        $admin->save();
+        $user = User::create([
+            'username' => $request->username,
+            'phone_number' => $request->phone_number,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
-        return redirect()->route('admin-login')->with('success', 'Admin signup successful! Please login.');
+        return response()->json(['message' => 'User registered successfully']);
     }
+     // Login function
+     public function userLogin(Request $request)
+     {
+         // Validasi input login
+         $request->validate([
+             'username' => 'required',
+             'password' => 'required'
+         ]);
 
-    public function showUserLoginForm()
+         // Mengambil username dan password dari request
+         $credentials = $request->only('username', 'password');
+
+         // Mengecek apakah username dan password cocok
+         if (Auth::attempt($credentials)) {
+             // Redirect ke dashboard jika login berhasil
+             return redirect()->route('user.dashboard');
+         }
+
+         // Jika gagal login, kembalikan ke halaman sebelumnya dengan error
+         return back()->withErrors([
+             'username' => 'The provided credentials do not match our records.',
+         ]);
+     }
+
+     public function showUserLoginForm()
     {
-        return view('User.login');
-    }
-    public function showUserRegisForm()
-    {
-        return view('User.register');
+        return view('user.login');
     }
 }

@@ -41,9 +41,9 @@ return [
             'provider' => 'users',
         ],
         'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
+        'driver' => 'session',
+        'provider' => 'admins',
+    ],
     ],
 
     /*
@@ -69,9 +69,10 @@ return [
             'model' => App\Models\User::class,
         ],
         'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
-        ],
+        'driver' => 'eloquent',
+        'model' => App\Models\Admin::class, // Ensure you have the correct path to your Admin model
+    ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

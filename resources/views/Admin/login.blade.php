@@ -25,7 +25,7 @@
         <!-- Right Panel (Form) -->
         <div
             class="w-full lg:w-3/5 bg-blue-200 p-10 flex flex-col justify-center rounded-tl-[30px] lg:rounded-l-[30px]">
-            <form action="{{ route('admin-register') }}" class="space-y-5" method="POST">
+            <form action="{{ url('admin/login') }}" class="space-y-5" method="POST">
                 @csrf
                 <div>
                     <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
@@ -39,7 +39,7 @@
                 </div>
                 <!-- Link dan Tombol Masuk -->
                 <div class="text-sm text-gray-600">
-                    *Belum memiliki akun? Silahkan <a href="{{ route('admin-register') }}"
+                    *Belum memiliki akun? Silahkan <a href="{{ url('admin/register') }}"
                         class="text-blue-500 hover:underline">Daftar
                         akun</a>
                 </div>
