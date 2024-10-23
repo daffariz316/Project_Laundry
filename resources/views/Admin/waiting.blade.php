@@ -22,7 +22,7 @@
     <aside class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
         <div class="h-19.5">
             <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
-            <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="{{ url('/admin') }}">
+            <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="{{url('admin/dashboard')}}">
               <img src="{{ asset('assets/img/yuma.png') }}" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
             </a>
           </div>
@@ -32,7 +32,7 @@
       <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
         <ul class="flex flex-col pl-0 mb-0">
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/admin') }}">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{url('admin/dashboard')}}">
               <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bxs-dashboard '></i>
               </div>
@@ -41,7 +41,7 @@
           </li>
 
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors" href="{{ url('/Waiting') }}">
+            <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors" href="{{ url('/waiting') }}">
               <div class="bg-gradient-to-tl  from-blue-600 to-cyan-400 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bx-spreadsheet text-white' ></i>
               </div>
@@ -53,7 +53,7 @@
           </li>
 
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/Pengguna') }}">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/admin/pengguna') }}">
               <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bxs-user'></i>
               </div>
@@ -61,7 +61,7 @@
             </a>
           </li>
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/Akun_admin') }}">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/admin') }}">
               <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bx-user' ></i>
               </div>
@@ -70,13 +70,16 @@
           </li>
 
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="./pages/profile.html">
-              <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <i class='bx bx-log-out'></i>
-              </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">logout</span>
-            </a>
-          </li>
+            <form action="{{ route('admin.logout') }}" method="POST" class="flex items-center">
+                @csrf
+                <button type="submit" class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+                    <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Logout</span>
+                </button>
+            </form>
+            </li>
     </aside>
 
     <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
@@ -120,7 +123,7 @@
                   <!-- Gunakan flex dan justify-between untuk menempatkan judul dan link di kanan -->
                   <div class="flex justify-between items-center">
                     <h6>Waiting table</h6>
-                    <a href="#" class="text-xs font-semibold leading-tight text-slate-400">Tambah</a>
+                    <a href="{{ route('waiting.create') }}" class="text-xs font-semibold leading-tight text-slate-400">Tambah</a>
                   </div>
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">
@@ -176,9 +179,15 @@
                             <span class="text-xs font-semibold leading-tight text-slate-400">{{$item ->end_date }}</span>
                           </td>
                           <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                            <a href="javascript:;" class="text-xs font-semibold leading-tight text-slate-400"> Edit </a>
-                            <a href="javascript:;" class="text-xs font-semibold leading-tight text-red-500 ml-4">Delete</a>
-                          </td>
+                            <a href="{{ route('waitings.edit', $item->id) }}" class="text-xs font-semibold leading-tight text-slate-400"> Edit </a>
+
+                            <form action="{{ route('waitings.destroy', $item->id) }}" method="POST" class="delete-form" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="button" class="text-xs font-semibold leading-tight text-red-500 ml-4 delete-button">Delete</button>
+                            </form>
+                        </td>
+
                         </tr>
                         @endforeach
                       </tbody>
@@ -226,4 +235,27 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- main script file  -->
   <script src="../assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.querySelectorAll('.delete-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const form = this.closest('form'); // Ambil form terdekat
+
+            Swal.fire({
+                title: "Anda yakin di hapus?",
+                text: "Kalau anda tidak yakin untuk di Hapus silahkan di tolak!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#4caf50",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Iya, hapus!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit(); // Kirim form jika dikonfirmasi
+                }
+            });
+        });
+    });
+</script>
+
 </html>

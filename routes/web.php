@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WaitingController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,31 +16,43 @@ use App\Http\Controllers\WaitingController;
 |
 */
 
-// Rute untuk dashboard pengguna (user)
-Route::permanentRedirect('/', '/home');
-Route::get('/home', [DashboardController::class, 'userDashboard'])->name('user.dashboard');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('admin/register', [AdminController::class, 'showRegisterForm'])->name('admin.register');
+Route::post('admin/register', [AdminController::class, 'register']);
+Route::get('admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+Route::post('admin/login', [AdminController::class, 'login']);
+Route::post('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+// Rute untuk dashboard admin
+Route::get('admin/dashboard', [DashboardController::class, 'adminDashboard'])->name('admin.dashboard');
 
 
-//auth user
-Route::get('/login', [AuthController::class, 'showUserLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'userLogin']);
-Route::get('/register', [AuthController::class, 'showUserRegisForm'])->name('register');
-Route::post('/register', [AuthController::class, 'userRegister']);
-//Auth Admin
-Route::get('/admin-login', [AuthController::class, 'showAdminLoginForm'])->name('admin-login');
-Route::post('/admin-login', [AuthController::class, 'adminLogin']);
-Route::get('/admin-register', [AuthController::class, 'showAdminRegisForm'])->name('admin-register');
-Route::post('/admin-register', [AuthController::class,'adminRegister']);
-
-
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-//admin routes
-Route::get('/admin', [DashboardController::class, 'adminDashboard']);
-Route::get('/Waiting', [DashboardController::class, 'loadWaiting']);
-Route::get('/Pengguna', [DashboardController::class, 'loadPengguna']);
-Route::get('/Akun_admin', [DashboardController::class, 'loadAkunAdmin']);
-
-
-
+// Route untuk menampilkan halaman waiting list
+Route::get('/waiting', [DashboardController::class, 'loadWaiting']);
 // Route untuk menampilkan halaman biaya
-Route::get('/Waiting', [WaitingController::class, 'index'])->name('waiting.index');
+Route::get('/waiting', [WaitingController::class, 'index'])->name('waiting.index');
+
+// Rute untuk menampilkan formulir penambahan data
+Route::get('/waiting/create', [WaitingController::class, 'create'])->name('waiting.create');
+// Rute untuk menyimpan data ke database
+Route::post('/waitings', [WaitingController::class, 'store'])->name('waitings.store');
+Route::get('waitings/{id}/edit', [WaitingController::class, 'edit'])->name('waitings.edit');
+Route::put('waitings/{id}', [WaitingController::class, 'update'])->name('waitings.update');
+Route::delete('waitings/{id}', [WaitingController::class, 'destroy'])->name('waitings.destroy');
+Route::get('/admin/dashboard', [WaitingController::class, 'loadData'])->name('admin.dashboard');
+
+//admins
+Route::get('/admin',[DashboardController::class,'loadAdmin']);
+Route::get('/admins', [adminController::class, 'index'])->name('admins.index');
+Route::delete('/admins/{id}', [AdminController::class, 'destroy'])->name('admins.destroy');
+
+///akun pengguna
+Route::get('/admin/pengguna', [DashboardController::class, 'loadPengguna']);
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('admin/dashboard', function () {
+//         return view('admin.dashboard'); // Buat view dashboard
+//     })->name('admin.dashboard');
+// });
