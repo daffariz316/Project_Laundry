@@ -36,7 +36,7 @@
               <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bxs-dashboard '></i>
               </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Dashboard</span>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Halaman Utama</span>
             </a>
           </li>
 
@@ -45,7 +45,7 @@
               <div class="bg-gradient-to-tl  from-blue-600 to-cyan-400 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bx-spreadsheet text-white' ></i>
               </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Waiting List</span>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">List Antrian</span>
             </a>
           </li>
           <li class="w-full mt-4">
@@ -88,19 +88,28 @@
         <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
           <nav>
             <!-- breadcrumb -->
-            <h6 class="mb-0 mt-6 font-bold capitalize">Waiting List</h6>
+            <h6 class="mb-0 mt-6 font-bold capitalize">List Antrean</h6>
           </nav>
 
           <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
             <div class="flex items-center md:ml-auto md:pr-4">
-              <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
-                <span class="text-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-                  <i class="fas fa-search" aria-hidden="true"></i>
-                </span>
-                <input type="text" class="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Type here..." />
-              </div>
+                <form action="{{ route('admin.waiting') }}" method="GET">
+                    <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+                        <span class="text-sm ease-soft leading-5 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" name="search" class="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Type here..." value="{{ request('search') }}" />
+                        <button type="submit" class="hidden"></button> <!-- Optional: Button for form submission -->
+                    </div>
+                </form>
             </div>
             <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
+                <li class="flex items-center">
+                    <a href="../pages/sign-in.html" class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-sm text-slate-500">
+                    <i class="fa fa-user sm:mr-1"></i>
+                    <span class="hidden sm:inline">{{ session('admin')->email }}</span>
+                    </a>
+                </li>
               <li class="flex items-center pl-4 xl:hidden">
                 <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" sidenav-trigger>
                   <div class="w-4.5 overflow-hidden">
@@ -122,7 +131,7 @@
                 <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                   <!-- Gunakan flex dan justify-between untuk menempatkan judul dan link di kanan -->
                   <div class="flex justify-between items-center">
-                    <h6>Waiting table</h6>
+                    <h6>Tabel Antrean</h6>
                     <a href="{{ route('waiting.create') }}" class="text-xs font-semibold leading-tight text-slate-400">Tambah</a>
                   </div>
                 </div>
