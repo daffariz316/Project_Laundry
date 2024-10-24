@@ -152,7 +152,11 @@
                                 <td class="px-6 py-4 text-sm text-center">{{$admin ->password}}</td>
                                 <td class="px-6 py-4 text-sm text-center">
                                     <a href="javascript:;" class="text-xs font-semibold leading-tight text-blue-500">Edit</a>
-
+                                    <form action="{{route('admins.edit', $admin->id)}}" method="POST" class="edit-form" style="display:inline;">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="text-xs font-semibold leading-tight text-blue-500 ml-4 edit-button">Edit</button>
+                                    </form>
                                     <form action="{{ route('admins.destroy', $admin->id) }}" method="POST" class="delete-form" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
@@ -199,12 +203,8 @@
       </div>
     </main>
   </body>
-  <!-- plugin for scrollbar  -->
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js" async></script>
   <!-- github button -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- main script file  -->
-  <script src="../assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5" async></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.querySelectorAll('.delete-button').forEach(button => {
@@ -226,6 +226,31 @@
             });
         });
     });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const sidenavTrigger = document.querySelector('[sidenav-trigger]');
+  const sidenav = document.querySelector('aside');
+  const sidenavClose = document.querySelector('[sidenav-close]');
+
+  // Fungsi untuk menampilkan atau menyembunyikan sidenav
+  function toggleSidenav() {
+    if (sidenav.classList.contains('-translate-x-full')) {
+      sidenav.classList.remove('-translate-x-full');
+    } else {
+      sidenav.classList.add('-translate-x-full');
+    }
+  }
+
+  // Ketika sidenav trigger ditekan
+  sidenavTrigger.addEventListener('click', toggleSidenav);
+
+  // Ketika sidenav close ditekan
+  if (sidenavClose) {
+    sidenavClose.addEventListener('click', toggleSidenav);
+  }
+});
+
 </script>
 
 </html>

@@ -16,8 +16,6 @@
     <link href="{{ asset('assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5') }}" rel="stylesheet" />
     <!-- box icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- chart js -->
-    <link  rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"/>
   </head>
 
   <body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500">
@@ -85,7 +83,6 @@
             </form>
             </li>
         </ul>
-      </div>
     </aside>
 
     <!-- end sidenav -->
@@ -98,7 +95,6 @@
             <!-- breadcrumb -->
             <h6 class="mb-0 mt-6 font-bold capitalize">Dashboard</h6>
           </nav>
-
 
           <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
             <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -236,16 +232,33 @@
       <!-- end cards -->
     </main>
   </body>
-  <script src="{{ asset('assets/js/charts-pie.js') }}"></script>
-  <!-- plugin for charts  -->
-  <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}" async></script>
-  <!-- plugin for scrollbar  -->
-  <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}" async></script>
   <!-- github button -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- main script file  -->
-  <script src="{{asset('assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5')}}" async></script>
   <!-- box icon  -->
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.5/dist/chart.umd.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const sidenavTrigger = document.querySelector('[sidenav-trigger]');
+  const sidenav = document.querySelector('aside');
+  const sidenavClose = document.querySelector('[sidenav-close]');
+
+  // Fungsi untuk menampilkan atau menyembunyikan sidenav
+  function toggleSidenav() {
+    if (sidenav.classList.contains('-translate-x-full')) {
+      sidenav.classList.remove('-translate-x-full');
+    } else {
+      sidenav.classList.add('-translate-x-full');
+    }
+  }
+
+  // Ketika sidenav trigger ditekan
+  sidenavTrigger.addEventListener('click', toggleSidenav);
+
+  // Ketika sidenav close ditekan
+  if (sidenavClose) {
+    sidenavClose.addEventListener('click', toggleSidenav);
+  }
+});
+
+  </script>
 </html>

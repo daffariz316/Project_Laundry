@@ -20,7 +20,6 @@
                 <a href="#" class="hover:text-blue-500">Beranda</a>
                 <a href="#" class="hover:text-blue-500">Servis</a>
                 <a href="#" class="hover:text-blue-500">Antrian</a>
-                <a href="#" class="hover:text-blue-500">Rawatan</a>
                 <a href="{{ url('user/login') }}" class="hover:text-blue-500">Masuk</a>
             </nav>
         </div>
