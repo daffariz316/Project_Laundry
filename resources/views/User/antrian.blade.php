@@ -124,7 +124,7 @@
                             $waiting->status === 'selesai' ? 'from-green-600 to-lime-400' :
                             ($waiting->status === 'belum selesai' ? 'from-red-500 to-black' :
                             ($waiting->status === 'dalam antrian' ? 'from-slate-600 to-slate-950' :
-                            ($waiting->status === 'sedang diproses' ? 'from-slate-600 to-slate-950' : ''))
+                            ($waiting->status === 'sedang proses' ? 'from-slate-600 to-slate-950' : ''))
                         ) }} text-white px-3 py-1 rounded-full text-sm md:text-base whitespace-nowrap">
                             {{ ucfirst($waiting->status) }}
                         </span>

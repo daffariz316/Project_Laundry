@@ -31,9 +31,22 @@ class DashboardController extends Controller
         return view('user.dashboard-u');
     }
 
-    public function showDashboardData()
+//     public function showDashboardData()
+// {
+//     $waitings = Waiting::all(); // Ambil semua data dari tabel 'waitings'
+//     $user_c = User::count(); // Menghitung jumlah user
+
+//     // Kirim kedua data ke view admin.dashboard
+//     return view('admin.dashboard', [
+//         'waitings' => $waitings,
+//         'user_c' => $user_c
+//     ]);
+// }
+public function showDashboardData()
 {
-    $waitings = Waiting::all(); // Ambil semua data dari tabel 'waitings'
+    $waitings = Waiting::orderBy('updated_at') // Mengurutkan data berdasarkan tanggal update
+                       ->take(10) // Ambil hanya 10 data teratas
+                       ->get();
     $user_c = User::count(); // Menghitung jumlah user
 
     // Kirim kedua data ke view admin.dashboard
@@ -42,6 +55,8 @@ class DashboardController extends Controller
         'user_c' => $user_c
     ]);
 }
+
+
 public function servis(){
     return view('user.servis');
 }

@@ -143,14 +143,26 @@ $waitings = $query->get();
 return view('admin.waiting', ['waiting' => $waitings]);
 }
 
-public function showWaitings()
-    {
-        // Ambil semua data dari tabel waitings
-        $waitings = Waiting::all();
+// public function showWaitings()
+//     {
+//         // Ambil semua data dari tabel waitings
+//         $waitings = Waiting::all();
 
-        // Kirim data ke view dengan cara yang diinginkan
-        return view('user.antrian', [
-            'waitings' => $waitings
-        ]);
-    }
+//         // Kirim data ke view dengan cara yang diinginkan
+//         return view('user.antrian', [
+//             'waitings' => $waitings
+//         ]);
+//     }
+public function showWaitings()
+{
+    // Ambil 10 data terakhir dari tabel waitings berdasarkan kolom updated_at
+    $waitings = Waiting::orderBy('updated_at')->take(10)->get();
+
+    // Kirim data ke view dengan cara yang diinginkan
+    return view('user.antrian', [
+        'waitings' => $waitings
+    ]);
+}
+
+
 }
