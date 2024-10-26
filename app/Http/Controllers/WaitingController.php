@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Waiting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WaitingController extends Controller
 {
@@ -100,12 +102,55 @@ public function destroy($id)
     return redirect()->route('waiting.index')->with('success', 'Data berhasil dihapus!');
 }
 
-public function loadData()
+// public function loadData()
+//     {
+//         // Ambil semua data dari tabel 'waitings'
+//         $waitings = Waiting::all();
+
+//         // Kirim data ke view admin.dashboard
+//         return view('admin.dashboard', ['waitings' => $waitings]);
+//     }
+public function search(Request $request)
+{
+    $search = $request->input('search');
+
+    // Query untuk mencari berdasarkan nama pelanggan atau jenis layanan
+    $waitings = DB::table('waitings')
+                ->where('nama_pelanggan', 'like', "%{$search}%")
+                ->orWhere('jenis_layanan', 'like', "%{$search}%")
+                ->get();
+
+    $user_c = User::count(); // Menghitung jumlah user
+
+    return view('admin.dashboard', [
+        'waitings' => $waitings,
+        'user_c' => $user_c // Kirimkan jumlah user ke view
+    ]);
+}
+public function search_w(Request $request){
+// Ambil semua data atau berdasarkan pencarian
+$query = Waiting::query();
+
+if ($request->has('search')) {
+    $searchTerm = $request->input('search');
+    $query->where('nama_pelanggan', 'like', '%' . $searchTerm . '%')
+          ->orWhere('jenis_layanan', 'like', '%' . $searchTerm . '%')
+          ->orWhere('status', 'like', '%' . $searchTerm . '%');
+}
+
+$waitings = $query->get();
+
+return view('admin.waiting', ['waiting' => $waitings]);
+}
+
+public function showWaitings()
     {
-        // Ambil semua data dari tabel 'waitings'
+        // Ambil semua data dari tabel waitings
         $waitings = Waiting::all();
 
-        // Kirim data ke view admin.dashboard
-        return view('admin.dashboard', ['waitings' => $waitings]);
+        // Kirim data ke view dengan cara yang diinginkan
+        return view('user.antrian', [
+            'waitings' => $waitings
+        ]);
     }
 }

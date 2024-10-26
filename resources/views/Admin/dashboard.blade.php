@@ -16,8 +16,6 @@
     <link href="{{ asset('assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5') }}" rel="stylesheet" />
     <!-- box icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- chart js -->
-    <link  rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"/>
   </head>
 
   <body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500">
@@ -39,7 +37,7 @@
               <div class="bg-gradient-to-tl from-blue-600 to-cyan-400 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bxs-dashboard text-white'></i>
               </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Dashboard</span>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Halaman Utama</span>
             </a>
           </li>
 
@@ -48,7 +46,7 @@
               <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bx-spreadsheet' ></i>
               </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Waiting List</span>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">List Antrian</span>
             </a>
           </li>
           <li class="w-full mt-4">
@@ -56,7 +54,7 @@
           </li>
 
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/Pengguna') }}">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{ url('/admin/pengguna') }}">
               <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <i class='bx bxs-user'></i>
               </div>
@@ -85,7 +83,6 @@
             </form>
             </li>
         </ul>
-      </div>
     </aside>
 
     <!-- end sidenav -->
@@ -100,15 +97,23 @@
           </nav>
 
           <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
-            <div class="flex items-center md:ml-auto md:pr-4">
-              <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
-                <span class="text-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-                  <i class="fas fa-search"></i>
-                </span>
-                <input type="text" class="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Type here..." />
-              </div>
+            <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
+                <form action="{{ route('admin.search') }}" method="GET" class="flex items-center md:ml-auto md:pr-4">
+                    <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+                        <span class="text-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" name="search" class="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Type here..." />
+                    </div>
+                </form>
             </div>
             <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
+                <li class="flex items-center">
+                    <a href="../pages/sign-in.html" class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-sm text-slate-500">
+                    <i class="fa fa-user sm:mr-1"></i>
+                    <span class="hidden sm:inline">{{ session('admin')->email }}</span>
+                    </a>
+                </li>
               <li class="flex items-center pl-4 xl:hidden">
                 <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" sidenav-trigger>
                   <div class="w-4.5 overflow-hidden">
@@ -132,11 +137,11 @@
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
               <div class="flex-auto p-4">
                 <div class="flex flex-row -mx-3">
-                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div class="flex-none w-2/3 max-w-full px-3">
                     <div>
                       <p class="mb-0 font-sans text-sm font-semibold leading-normal">Jumlah user</p>
                       <h5 class="mb-0 font-bold">
-                        2,300
+                        {{$user_c}}
                       </h5>
                     </div>
                   </div>
@@ -151,14 +156,14 @@
           </div>
       </div>
       <div class="p-6 pb-2 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-        <h6>Waiting table</h6>
+        <h6>Tabel Antrean</h6>
       </div>
       <div class="flex-auto px-0 pt-0 pb-2">
         <div class="p-0 overflow-x-auto">
             @php
                 use Carbon\Carbon;
             @endphp
-
+            @if(isset($waitings))
             <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
                 <thead class="align-bottom">
                     <tr>
@@ -189,7 +194,7 @@
                     @endforeach
                 </tbody>
             </table>
-
+            @endif
         </div>
       </div>
       <!-- Footer -->
@@ -227,16 +232,33 @@
       <!-- end cards -->
     </main>
   </body>
-  <script src="{{ asset('assets/js/charts-pie.js') }}"></script>
-  <!-- plugin for charts  -->
-  <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}" async></script>
-  <!-- plugin for scrollbar  -->
-  <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}" async></script>
   <!-- github button -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- main script file  -->
-  <script src="{{asset('assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5')}}" async></script>
   <!-- box icon  -->
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.5/dist/chart.umd.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const sidenavTrigger = document.querySelector('[sidenav-trigger]');
+  const sidenav = document.querySelector('aside');
+  const sidenavClose = document.querySelector('[sidenav-close]');
+
+  // Fungsi untuk menampilkan atau menyembunyikan sidenav
+  function toggleSidenav() {
+    if (sidenav.classList.contains('-translate-x-full')) {
+      sidenav.classList.remove('-translate-x-full');
+    } else {
+      sidenav.classList.add('-translate-x-full');
+    }
+  }
+
+  // Ketika sidenav trigger ditekan
+  sidenavTrigger.addEventListener('click', toggleSidenav);
+
+  // Ketika sidenav close ditekan
+  if (sidenavClose) {
+    sidenavClose.addEventListener('click', toggleSidenav);
+  }
+});
+
+  </script>
 </html>

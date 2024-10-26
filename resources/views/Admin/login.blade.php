@@ -17,7 +17,7 @@
             <img src="{{ asset('assets/img/logo yuma laundry.png') }}" alt="Yuma Laundry Logo"
                 class="absolute top-0 left-0 m-4 w-auto max-w-[150px] md:max-w-[200px] lg:max-w-[170px] object-contain">
             <h1 class="text-3xl font-bold text-gray-800 mt-40 lg:mt-0 mb-4">Halaman</h1>
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">Daftar Pengguna</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Login Admin</h1>
             <div class="bg-blue-100 rounded-full p-4 mb-4">
                 <img src="{{ asset('assets/img/bxs-user-circle.svg') }}" alt="User Icon" class="w-40">
             </div>

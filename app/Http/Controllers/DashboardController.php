@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
+use App\Models\Waiting;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,14 +19,33 @@ class DashboardController extends Controller
         // return view('Admin.waiting', ['wait' => $wait]);
         return view('Admin.waiting');
     }
-    // public function loadAkunAdmin(){
-    //     return view('admin.akun');
-    // }
     public function loadAdmin(){
         $admins = Admin::all();
         return view('admin.akun', ['admins' => $admins]);
     }
     public function loadPengguna(){
-        return view('admin.pengguna');
+        return view('admin.user');
     }
+
+    public function loadDashboard(){
+        return view('user.dashboard-u');
+    }
+
+    public function showDashboardData()
+{
+    $waitings = Waiting::all(); // Ambil semua data dari tabel 'waitings'
+    $user_c = User::count(); // Menghitung jumlah user
+
+    // Kirim kedua data ke view admin.dashboard
+    return view('admin.dashboard', [
+        'waitings' => $waitings,
+        'user_c' => $user_c
+    ]);
+}
+public function servis(){
+    return view('user.servis');
+}
+public function antrian(){
+    return view('user.antrian');
+}
 }

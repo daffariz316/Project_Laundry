@@ -62,9 +62,13 @@ class AdminController extends Controller
     ]);
 }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
         return redirect()->route('admin.login')->with('success', 'Logged out successfully.');
     }
 
@@ -80,5 +84,41 @@ class AdminController extends Controller
         $admin->delete();
 
         return redirect()->route('admins.index')->with('success', 'Admin deleted successfully.');
+    }
+    public function search_a(Request $request)
+    {
+        $search = $request->input('search');
+        $admins = Admin::query()
+            ->where('username', 'LIKE', "%{$search}%")
+            ->orWhere('email', 'LIKE', "%{$search}%")
+            ->get();
+
+        return view('admin.akun', compact('admins'));
+    }
+    public function edit($id)
+    {
+        $admin = Admin::findOrFail($id);
+        return view('admin.edit-a', compact('admin'));
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'nullable|string|min:8',
+        ]);
+
+        $admin = Admin::findOrFail($id);
+        $admin->username = $request->username;
+        $admin->email = $request->email;
+
+        // Hanya update password jika diisi
+        if ($request->filled('password')) {
+            $admin->password = bcrypt($request->password);
+        }
+
+        $admin->save();
+
+        return redirect()->route('admins.index')->with('success', 'Admin updated successfully.');
     }
 }

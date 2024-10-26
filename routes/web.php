@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WaitingController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rute untuk dashboard pengguna (user)
+Route::permanentRedirect('/', '/user/dashboard');
+Route::get('/user/dashboard', [DashboardController::class, 'loadDashboard'])->name('user.dashboard-u');
 
 Route::get('admin/register', [AdminController::class, 'showRegisterForm'])->name('admin.register');
 Route::post('admin/register', [AdminController::class, 'register']);
@@ -28,6 +29,9 @@ Route::post('admin/logout', [AdminController::class, 'logout'])->name('admin.log
 
 // Rute untuk dashboard admin
 Route::get('admin/dashboard', [DashboardController::class, 'adminDashboard'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [DashboardController::class, 'showDashboardData'])->name('admin.dashboard');
+
+
 
 
 // Route untuk menampilkan halaman waiting list
@@ -42,15 +46,57 @@ Route::post('/waitings', [WaitingController::class, 'store'])->name('waitings.st
 Route::get('waitings/{id}/edit', [WaitingController::class, 'edit'])->name('waitings.edit');
 Route::put('waitings/{id}', [WaitingController::class, 'update'])->name('waitings.update');
 Route::delete('waitings/{id}', [WaitingController::class, 'destroy'])->name('waitings.destroy');
-Route::get('/admin/dashboard', [WaitingController::class, 'loadData'])->name('admin.dashboard');
+// Route::get('admin/waiting', [WaitingController::class, 'showWaitingList'])->name('waitings.show');
+
+// Route::get('/admin/dashboard', [WaitingController::class, 'loadData'])->name('admin.dashboard');
 
 //admins
 Route::get('/admin',[DashboardController::class,'loadAdmin']);
 Route::get('/admins', [adminController::class, 'index'])->name('admins.index');
 Route::delete('/admins/{id}', [AdminController::class, 'destroy'])->name('admins.destroy');
+Route::get('admins/{id}/edit', [AdminController::class, 'edit'])->name('admins.edit');
+Route::put('admins/{id}', [AdminController::class, 'update'])->name('admins.update');
+// Route::get('/admin/dashboard',[UserController::class,'showUserCount'])->name('admins.dashboard');
+
+// Route untuk pencarian
+Route::get('/admin/search', [WaitingController::class, 'search'])->name('admin.search');
+Route::get('admin/waiting', [WaitingController::class, 'search_w'])->name('admin.waiting');
+Route::get('admin/admins', [AdminController::class, 'search_a'])->name('admin.admins');
 
 ///akun pengguna
 Route::get('/admin/pengguna', [DashboardController::class, 'loadPengguna']);
+Route::get('/admin/pengguna', [UserController::class, 'index'])->name('admin.pengguna');
+
+// Routes untuk user
+Route::get('user/register', [UserController::class, 'showRegisterForm'])->name('user.register');
+Route::post('user/register', [UserController::class, 'register']);
+Route::get('user/login', [UserController::class, 'showLoginForm'])->name('user.login');
+Route::post('user/login', [UserController::class, 'userLogin']);
+Route::get('user/logout', [UserController::class, 'logout'])->name('user.logout');
+
+
+
+// Rute untuk menampilkan profil pengguna
+Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
+
+// Rute untuk menampilkan form edit profil
+Route::get('/user/edit', [UserController::class, 'edit'])->name('user.edit');
+
+// Rute untuk memproses pembaruan profil
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
+// Route::get('/user/profile', [UserController::class, 'showProfile'])->name('user.profile')->middleware('auth');
+// // Menampilkan form edit profil
+// Route::get('/user/edit', [UserController::class, 'editProfileForm'])->name('user.edit-profile');
+
+
+// Rute untuk dashboard admin
+Route::get('user/dashboard', [DashboardController::class, 'loadDashboard'])->name('user.dashboard-u');
+Route::get('user/servis', [DashboardController::class, 'servis'])->name('user.servis');
+Route::get('user/antrian', [DashboardController::class, 'antrian']);
+// Rute untuk menampilkan waiting list di pengguna
+Route::get('/user/antrian', [WaitingController::class, 'showWaitings'])->name('user.waiting');
+
+
 // Route::middleware(['auth'])->group(function () {
 //     Route::get('admin/dashboard', function () {
 //         return view('admin.dashboard'); // Buat view dashboard
