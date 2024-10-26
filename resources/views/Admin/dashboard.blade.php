@@ -182,10 +182,17 @@
                         <td class="px-6 py-4 text-sm">{{ $waiting->nama_barang }}</td>
                         <td class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                             @if($waiting->status == 'selesai')
-                                <span class="bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Selesai</span>
-                            @else
-                                <span class="bg-gradient-to-tl from-red-600 to-pink-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{ ucfirst($waiting->status) }}</span>
-                            @endif
+                            <span class="bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Selesai</span>
+                        @elseif($waiting->status == 'belum selesai')
+                            <span class="bg-gradient-to-tl from-red-500 to-black px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Belum Selesai</span>
+                        @elseif($waiting->status == 'dalam antrian')
+                            <span class="bg-gradient-to-tl from-slate-600 to-slate-950 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Dalam Antrian</span>
+                        @elseif($waiting->status == 'sedang diproses')
+                            <span class="bg-gradient-to-tl from-slate-600 to-slate-950 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Sedang Diproses</span>
+                        @else
+                            <span class="bg-gradient-to-tl from-gray-400 to-gray-600 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{ ucfirst($waiting->status) }}</span>
+                        @endif
+
                         </td>
                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                             <span class="text-xs font-semibold leading-tight text-slate-400">{{ Carbon::parse($waiting->end_date)->format('d/m/Y') }}</span>
