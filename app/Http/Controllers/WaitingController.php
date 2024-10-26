@@ -134,11 +134,23 @@ $query = Waiting::query();
 if ($request->has('search')) {
     $searchTerm = $request->input('search');
     $query->where('nama_pelanggan', 'like', '%' . $searchTerm . '%')
-          ->orWhere('jenis_layanan', 'like', '%' . $searchTerm . '%');
+          ->orWhere('jenis_layanan', 'like', '%' . $searchTerm . '%')
+          ->orWhere('status', 'like', '%' . $searchTerm . '%');
 }
 
 $waitings = $query->get();
 
 return view('admin.waiting', ['waiting' => $waitings]);
 }
+
+public function showWaitings()
+    {
+        // Ambil semua data dari tabel waitings
+        $waitings = Waiting::all();
+
+        // Kirim data ke view dengan cara yang diinginkan
+        return view('user.antrian', [
+            'waitings' => $waitings
+        ]);
+    }
 }

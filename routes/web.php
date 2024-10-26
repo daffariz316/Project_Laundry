@@ -46,6 +46,8 @@ Route::post('/waitings', [WaitingController::class, 'store'])->name('waitings.st
 Route::get('waitings/{id}/edit', [WaitingController::class, 'edit'])->name('waitings.edit');
 Route::put('waitings/{id}', [WaitingController::class, 'update'])->name('waitings.update');
 Route::delete('waitings/{id}', [WaitingController::class, 'destroy'])->name('waitings.destroy');
+// Route::get('admin/waiting', [WaitingController::class, 'showWaitingList'])->name('waitings.show');
+
 // Route::get('/admin/dashboard', [WaitingController::class, 'loadData'])->name('admin.dashboard');
 
 //admins
@@ -70,9 +72,30 @@ Route::get('user/register', [UserController::class, 'showRegisterForm'])->name('
 Route::post('user/register', [UserController::class, 'register']);
 Route::get('user/login', [UserController::class, 'showLoginForm'])->name('user.login');
 Route::post('user/login', [UserController::class, 'userLogin']);
-Route::post('user/logout', [UserController::class, 'logout'])->name('user.logout');
+Route::get('user/logout', [UserController::class, 'logout'])->name('user.logout');
+
+
+
+// Rute untuk menampilkan profil pengguna
+Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
+
+// Rute untuk menampilkan form edit profil
+Route::get('/user/edit', [UserController::class, 'edit'])->name('user.edit');
+
+// Rute untuk memproses pembaruan profil
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
+// Route::get('/user/profile', [UserController::class, 'showProfile'])->name('user.profile')->middleware('auth');
+// // Menampilkan form edit profil
+// Route::get('/user/edit', [UserController::class, 'editProfileForm'])->name('user.edit-profile');
+
+
 // Rute untuk dashboard admin
 Route::get('user/dashboard', [DashboardController::class, 'loadDashboard'])->name('user.dashboard-u');
+Route::get('user/servis', [DashboardController::class, 'servis'])->name('user.servis');
+Route::get('user/antrian', [DashboardController::class, 'antrian']);
+// Rute untuk menampilkan waiting list di pengguna
+Route::get('/user/antrian', [WaitingController::class, 'showWaitings'])->name('user.waiting');
+
 
 // Route::middleware(['auth'])->group(function () {
 //     Route::get('admin/dashboard', function () {

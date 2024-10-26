@@ -42,4 +42,10 @@ class DashboardController extends Controller
         'user_c' => $user_c
     ]);
 }
+public function servis(){
+    return view('user.servis');
+}
+public function antrian(){
+    return view('user.antrian');
+}
 }

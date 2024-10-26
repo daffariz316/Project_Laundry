@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+    * {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+      background-color: #96c9f4;
+    }
+
+    .menu {
+      max-height: none; /* Di desktop, menu akan selalu terlihat */
+      overflow: visible; /* Pastikan overflow terlihat di desktop */
+      transition: max-height 0.3s ease; /* Transisi slide di mobile */
+    }
+
+    @media screen and (max-width: 768px) {
+      .menu {
+        position: absolute;
+        top: 100%; /* Pastikan menu tepat di bawah navbar */
+        left: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden; /* Sembunyikan menu di mobile saat tertutup */
+        background-color: #f7feff; /* Warna latar belakang menu */
+        transition: max-height 0.3s ease; /* Transisi slide di mobile */
+        z-index: 1; /* Pastikan menu berada di atas konten */
+      }
+
+      /* Atur padding antara link di dalam menu */
+      .menu li a {
+        padding: 0; /* Sesuaikan padding antar item menu */
+        display: block; /* Pastikan link memenuhi area item */
+      }
+
+      /* Efek blur pada konten ketika menu navbar aktif */
+      .blurred {
+        filter: blur(3px); /* Menambahkan efek blur ke konten */
+        transition: filter 0.3s ease; /* Transisi efek blur */
+      }
+    }
+
+  }

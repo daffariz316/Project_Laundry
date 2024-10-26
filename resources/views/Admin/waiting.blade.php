@@ -196,7 +196,6 @@
                                 <button type="button" class="text-xs font-semibold leading-tight text-red-500 ml-4 delete-button">Delete</button>
                             </form>
                         </td>
-
                         </tr>
                         @endforeach
                       </tbody>
