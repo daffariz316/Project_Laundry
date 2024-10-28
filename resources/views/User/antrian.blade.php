@@ -26,12 +26,23 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+
     <!-- jonsuh -->
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('assets/css/hamburgers.css') }}">
     <!-- Muat file CSS custom terakhir untuk menimpa style dari Tailwind -->
     <link rel="stylesheet" href="{{ asset('assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/output.css') }}" />
 
+=======
+    <link rel="stylesheet" href="{{asset('assets/css/hamburgers.css')}}">
+
+    <!-- Muat file CSS custom terakhir untuk menimpa style dari Tailwind -->
+    <link rel="stylesheet" href="{{ asset('assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5') }}" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{asset('assets/css/output.css')}}">
+>>>>>>> 847a517e917af14afe4b4d525008686972b1d091
 </head>
 
 <body class="bg-[#F7FEFF] ">
@@ -82,10 +93,64 @@
                 </ul>
 
 
+<<<<<<< HEAD
                 <div class="md:hidden block">
                     <button class="hamburger hamburger--squeeze" type="button">
                         <span class="hamburger-box">
                             <span class="hamburger-inner bg-[#96C9F4] before:bg-[#96C9F4] after:bg-[#96C9F4]"></span>
+=======
+            <div class="md:hidden block">
+                <button class="hamburger hamburger--squeeze" type="button">
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner bg-[#96C9F4] before:bg-[#96C9F4] after:bg-[#96C9F4]"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto py-10">
+    <!-- Title -->
+    <h1 class="text-center text-2xl font-bold mb-6">Antrian Pakaian Yuma Laundry</h1>
+
+    <!-- Garis di atas tabel -->
+    <hr class="border-[#0F67B1] mb-8 md:w-[600px] w-[300px] mx-auto">
+
+    <!-- Table -->
+    <div class="overflow-x-auto">
+        @php
+                use Carbon\Carbon;
+            @endphp
+        <table class="min-w-full bg-white border border-[#0F67B1] text-center">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="px-4 py-2 border border-[#0F67B1]">No</th>
+                    <th class="px-4 py-2 border border-[#0F67B1]">Nama Pelanggan</th>
+                    <th class="px-4 py-2 border border-[#0F67B1]">Nama Barang</th>
+                    <th class="px-4 py-2 border border-[#0F67B1]">Kuantitas</th>
+                    <th class="px-4 py-2 border border-[#0F67B1]">Status</th>
+                    <th class="px-4 py-2 border border-[#0F67B1]">Jenis</th>
+                    <th class="px-4 py-2 border border-[#0F67B1]">Tanggal Masuk</th>
+                    <th class="px-4 py-2 border border-[#0F67B1]">Tanggal Selesai</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($waitings as $index => $waiting)
+                <tr>
+                    <td class="px-4 py-2 border border-[#0F67B1]">{{ $index + 1 }}</td>
+                    <td class="px-4 py-2 border border-[#0F67B1]">{{ $waiting->nama_pelanggan }}</td>
+                    <td class="px-4 py-2 border border-[#0F67B1]">{{ $waiting->nama_barang }}</td>
+                    <td class="px-4 py-2 border border-[#0F67B1]">{{ $waiting->kuantitas_barang }}</td>
+                    <td class="px-4 py-2 border border-[#0F67B1]">
+                        <span class="bg-gradient-to-tl {{
+                            $waiting->status === 'selesai' ? 'from-green-600 to-lime-400' :
+                            ($waiting->status === 'belum selesai' ? 'from-red-500 to-black' :
+                            ($waiting->status === 'dalam antrian' ? 'from-slate-600 to-slate-950' :
+                            ($waiting->status === 'sedang proses' ? 'from-slate-600 to-slate-950' : ''))
+                        ) }} text-white px-3 py-1 rounded-full text-sm md:text-base whitespace-nowrap">
+                            {{ ucfirst($waiting->status) }}
+>>>>>>> 847a517e917af14afe4b4d525008686972b1d091
                         </span>
                     </button>
                 </div>

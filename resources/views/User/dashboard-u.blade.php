@@ -40,7 +40,7 @@
             <ul class="menu md:flex gap-x-7 items-center font-semibold flex-col md:flex-row md:static absolute z-10 top-24 left-0
                     md:bg-transparent bg-[#F7FEFF] md:w-auto w-full text-[16px] md:text-[18px]">
                 <li class="py-2 w-full text-center">
-                    <a href="{{route('user.dashboard-u')}}" class="hover:text-[#0F67B1]">Beranda</a>
+                    <a href="{{route('user.dashboard-u')}}" class="hover:text-[#0F67B1] text-[#0F67B1]">Beranda</a>
                 </li>
                 <li class="py-2 w-full text-center">
                     <a href="{{route('user.servis')}}" class="hover:text-[#0F67B1]">Servis</a>
