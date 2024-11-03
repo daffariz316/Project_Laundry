@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
+    <title>Antrian</title>
 
     <!-- aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -111,7 +111,7 @@
                     <thead>
                         <tr class="bg-gray-100">
                             <th class="px-4 py-2 border border-[#0F67B1]">No</th>
-                            <th class="px-4 py-2 border border-[#0F67B1]">Nama Pelanggan</th>
+                            <th class="px-4 py-2 border border-[#0F67B1]">Nama Pengguna</th>
                             <th class="px-4 py-2 border border-[#0F67B1]">Nama Barang</th>
                             <th class="px-4 py-2 border border-[#0F67B1]">Kuantitas</th>
                             <th class="px-4 py-2 border border-[#0F67B1]">Status</th>
@@ -166,14 +166,14 @@
         </div>
 
         <!-- Footer Section -->
-        <footer class="bg-[#96C9F4] text-black font-semibold py-4">
+        <footer class="bg-[#96C9F4] text-black py-4">
             <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
                 <!-- Logo -->
                 <div class="flex justify-center md:justify-start items-center">
                     <img src="{{ asset('assets/img/logo yuma laundry.png') }}" alt="Yuma Laundry Logo" class="h-20">
                 </div>
                 <!-- Contact Info -->
-                <div class="text-left text-[14px] md:text-[16px]">
+                <div class="text-left text-[14px] md:text-[16px] font-semibold">
                     <h3 class="font-semibold text-lg text-[16px] md:text-[18px]">Hubungi Kami</h3>
 
                     <div class="flex items-center space-x-2">
@@ -184,17 +184,17 @@
 
                     <div class="flex items-center space-x-2">
                         <i class='bx bxs-time text-xl'></i>
-                        <p>08:00-18:00 WIB</p>
+                        <p class="font-semibold">08:00-18:00 WIB</p>
                     </div>
 
                     <div class="flex items-center space-x-2">
                         <i class='bx bxs-phone text-xl'></i>
-                        <p>081809591059</p>
+                        <p class="font-semibold">081809591059</p>
                     </div>
 
                     <div class="flex items-center space-x-2">
                         <i class='bx bx-envelope text-xl'></i>
-                        <p>evnwev</p>
+                        <p class="font-semibold">yumacorpo@gmail.com</p>
                     </div>
                 </div>
             </div>

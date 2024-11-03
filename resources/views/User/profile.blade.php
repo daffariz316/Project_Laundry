@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
+    <title>Profil</title>
 
     <!-- aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -104,20 +104,23 @@
                 <form class="space-y-6 bg-[#B3DAF7] p-6 rounded-lg shadow-md md:max-w-[80%] max-w-lg mx-auto">
                     <div>
                         <label for="username" class="block text-sm font-medium text-black">Username</label>
-                        <input type="text" id="username"
-                            value="{{ $user->username }}"class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <input type="text" id="username" value="{{ $user->username }}"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            style="padding-left: 0.5rem !important;">
                     </div>
 
                     <div>
                         <label for="phone" class="block text-sm font-medium text-black">No. Telephone</label>
-                        <input type="text" id="phone"
-                            value="{{ $user->phone_number }}"class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <input type="text" id="phone" value="{{ $user->phone_number }}"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            style="padding-left: 0.5rem !important;">
                     </div>
 
                     <div>
                         <label for="email" class="block text-sm font-medium text-black">Email</label>
-                        <input type="email" id="email"
-                            value="{{ $user->email }}"class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <input type="email" id="email" value="{{ $user->email }}"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            style="padding-left: 0.5rem !important;">
                     </div>
 
                     <div class="flex flex-col space-y-4 md:flex-row md:justify-between md:space-y-0">
@@ -144,7 +147,8 @@
             <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
                 <!-- Logo -->
                 <div class="flex justify-center md:justify-start items-center">
-                    <img src="{{ asset('assets/img/logo yuma laundry.png') }}" alt="Yuma Laundry Logo" class="h-20">
+                    <img src="{{ asset('assets/img/logo yuma laundry.png') }}" alt="Yuma Laundry Logo"
+                        class="h-20">
                 </div>
                 <!-- Contact Info -->
                 <div class="text-left text-[14px] md:text-[16px]">
@@ -168,7 +172,7 @@
 
                     <div class="flex items-center space-x-2">
                         <i class='bx bx-envelope text-xl'></i>
-                        <p>evnwev</p>
+                        <p>yumacorpo@gmail.com</p>
                     </div>
                 </div>
             </div>

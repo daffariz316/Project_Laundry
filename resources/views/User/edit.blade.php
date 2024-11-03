@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
+    <title>Edit Profil</title>
 
     <!-- aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -103,35 +103,44 @@
                         <label for="username" class="block text-sm font-medium text-black">Username</label>
                         <input type="text" id="username" name="username"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                            required value="{{ old('username', $user->username) }}">
+                            style="padding-left: 0.5rem !important;" required
+                            value="{{ old('username', $user->username) }}">
                     </div>
 
                     <div>
                         <label for="phone_number" class="block text-sm font-medium text-black">No. Telepon</label>
                         <input type="text" id="phone_number" name="phone_number"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                            required value="{{ old('phone_number', $user->phone_number) }}">
+                            style="padding-left: 0.5rem !important;" required
+                            value="{{ old('phone_number', $user->phone_number) }}">
                     </div>
 
                     <div>
                         <label for="email" class="block text-sm font-medium text-black">Email</label>
                         <input type="email" id="email" name="email"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                            required value="{{ old('email', $user->email) }}">
+                            style="padding-left: 0.5rem !important;" required value="{{ old('email', $user->email) }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="block text-sm font-medium text-black">Password Baru</label>
                         <input type="password" id="password" name="password"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                        <small class="form-text text-muted">Kosongkan jika tidak ingin mengubah password.</small>
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            style="padding-left: 0.5rem !important;">
                     </div>
 
                     <div class="mb-3">
                         <label for="password_confirmation" class="block text-sm font-medium text-black">Konfirmasi
                             Password</label>
                         <input type="password" id="password_confirmation" name="password_confirmation"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            style="padding-left: 0.5rem !important;">
+                    </div>
+
+                    <!-- Checkbox untuk melihat password -->
+                    <div class="mb-3">
+                        <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+                        <label for="show-password" class="text-sm font-medium text-black">Tampilkan Password</label>
                     </div>
 
                     <div class="flex flex-col space-y-4 md:flex-row md:justify-between md:space-y-0">
@@ -183,7 +192,7 @@
 
                     <div class="flex items-center space-x-2">
                         <i class='bx bx-envelope text-xl'></i>
-                        <p>evnwev</p>
+                        <p>yumacorpo@gmail.com</p>
                     </div>
                 </div>
             </div>

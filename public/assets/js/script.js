@@ -11,7 +11,7 @@ hamburger.addEventListener('click', () => {
         if (menu.classList.contains('menu-active')) {
             // Animasi tutup (slide up)
 
-            
+
             menu.style.maxHeight = menu.scrollHeight + "px"; // Set terlebih dahulu ke tinggi yang sesuai
             setTimeout(() => {
                 menu.style.maxHeight = "0"; // Lalu set ke 0 untuk animasi slide up
@@ -49,3 +49,19 @@ window.addEventListener('resize', function() {
         content.classList.remove('blurred'); // Hapus efek blur di desktop
     }
 });
+
+function togglePasswordVisibility() {
+    var passwordField = document.getElementById("password");
+    var confirmPasswordField = document.getElementById("password_confirmation");
+    var showPasswordCheckbox = document.getElementById("show-password");
+
+    // Jika checkbox dicentang, ubah tipe menjadi 'text' agar password bisa dilihat
+    if (showPasswordCheckbox.checked) {
+        passwordField.type = "text";
+        confirmPasswordField.type = "text";
+    } else {
+        // Jika tidak dicentang, ubah kembali tipe menjadi 'password'
+        passwordField.type = "password";
+        confirmPasswordField.type = "password";
+    }
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
+    <title>Servis</title>
 
     <!-- aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -30,6 +30,15 @@
     <link rel="stylesheet" href="{{ asset('assets/css/hamburgers.css') }}">
     <!-- css -->
     <link rel="stylesheet" href="{{ asset('assets/css/output.css') }}">
+
+    <style>
+        .scroll-offset {
+            padding-top: 120px;
+            /* Sesuaikan nilai ini dengan tinggi navbar */
+            margin-top: -120px;
+            /* Kompensasi untuk padding, agar elemen tetap di posisinya */
+        }
+    </style>
 </head>
 
 <body class="bg-[#F7FEFF] ">
@@ -222,10 +231,10 @@
             </div>
         </div>
 
-        <div class="container mx-auto mb-10">
+        <div class="container mx-auto mb-10 scroll-mt-[20px] scroll-offset" id="Perlengkapan-Rumah-Tangga">
             <!-- Judul -->
             <h1 class="text-left text-xl font-bold mb-6 bg-[#0F67B1] text-white inline-block px-4 py-2 rounded-md">
-                Perlengkapan Bayi</h1>
+                Perlengkapan Rumah Tangga</h1>
 
             <!-- Layout Flexbox -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -365,7 +374,7 @@
 
                     <div class="flex items-center space-x-2">
                         <i class='bx bx-envelope text-xl'></i>
-                        <p>evnwev</p>
+                        <p>yumacorpo@gmail.com</p>
                     </div>
                 </div>
             </div>
