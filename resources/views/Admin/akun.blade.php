@@ -151,12 +151,6 @@
                                 <td class="px-6 py-4 text-sm text-left">{{$admin ->email}}</td>
                                 <td class="px-6 py-4 text-sm text-center">{{$admin ->password}}</td>
                                 <td class="px-6 py-4 text-sm text-center">
-                                    <a href="javascript:;" class="text-xs font-semibold leading-tight text-blue-500">Edit</a>
-                                    <form action="{{route('admins.edit', $admin->id)}}" method="POST" class="edit-form" style="display:inline;">
-                                        @csrf
-                                        @method('PUT')
-                                        <button type="submit" class="text-xs font-semibold leading-tight text-blue-500 ml-4 edit-button">Edit</button>
-                                    </form>
                                     <form action="{{ route('admins.destroy', $admin->id) }}" method="POST" class="delete-form" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
