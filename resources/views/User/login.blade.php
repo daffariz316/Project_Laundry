@@ -13,7 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="assets/img/logo yuma laundry.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/img/logoyuma2 1.png') }}" type="image/x-icon">
     <!-- font awesome cdn-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -41,7 +41,8 @@
                 class="absolute top-0 left-0 m-4 w-auto max-w-[100px] md:max-w-[150px] lg:max-w-[170px] object-contain">
 
             <!-- Kurangi jarak margin-top di tampilan mobile -->
-            <h1 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mt-10 md:mt-20 lg:mt-0 md:mb-2 mb-0">Halaman</h1>
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mt-10 md:mt-20 lg:mt-0 md:mb-2 mb-0">
+                Halaman</h1>
             <h1 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 md:mb-12 mb-8">Masuk Pengguna</h1>
 
             <!-- Responsive Icon Size -->

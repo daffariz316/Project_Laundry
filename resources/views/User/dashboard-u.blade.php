@@ -13,7 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/img/yuma.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/img/logoyuma2 1.png') }}" type="image/x-icon">
     <!-- font awesome cdn-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                     <div class="space-x-4 mt-4">
-                        <a href="https://wa.me/6281809591059"
+                        <a href="https://wa.me/6281809591059?text=Halo%20kami%20ingin%20bertanya%20tentang%20layanan%20Anda"
                             class="bg-[#0F67B1] text-white py-2 px-4 rounded-lg hover:bg-[#3FA2F6]">Hubungi Kami</a>
                         <a href="{{ route('user.servis') }}"
                             class="bg-[#0F67B1] text-white py-2 px-4 rounded-lg hover:bg-[#3FA2F6]">Layanan Kami</a>
