@@ -63,4 +63,11 @@ public function servis(){
 public function antrian(){
     return view('user.antrian');
 }
+public function showDashboard()
+{
+    return view('user.dashboard-u', [
+        'user' => auth()->user()
+    ]);
+}
+
 }

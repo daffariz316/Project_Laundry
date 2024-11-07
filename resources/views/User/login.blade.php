@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
-    <!-- aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- boxicon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/img/logoyuma2 1.png') }}" type="image/x-icon">
     <!-- font awesome cdn-->
@@ -30,14 +22,21 @@
     <link rel="stylesheet" href="{{ asset('assets/css/hamburgers.css') }}">
     <!-- css -->
     <link rel="stylesheet" href="{{ asset('assets/css/output.css') }}">
-</head>
 
+</head>
 <body class="bg-gray-100 flex items-center justify-center h-screen">
     <div class="bg-white shadow-lg rounded-lg flex flex-col lg:flex-row w-full h-full">
         <!-- Left Panel -->
         <div class="relative w-full lg:w-2/5 bg-white p-10 flex flex-col justify-center items-center text-center">
             <!-- Logo di pojok kiri atas -->
             <img src="{{ asset('assets/img/logo yuma laundry.png') }}" alt="Yuma Laundry Logo"
+
+                class="absolute top-0 left-0 m-4 w-auto max-w-[150px] md:max-w-[200px] lg:max-w-[170px] object-contain">
+            <h1 class="text-3xl font-bold text-gray-800 mt-40 lg:mt-0 mb-4">Halaman</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Login Pengguna</h1>
+            <div class="bg-blue-100 rounded-full p-4 mb-4">
+                <img src="{{ asset('assets/img/bxs-user-circle.svg') }}" alt="User Icon" class="w-40">
+
                 class="absolute top-0 left-0 m-4 w-auto max-w-[100px] md:max-w-[150px] lg:max-w-[170px] object-contain">
 
             <!-- Kurangi jarak margin-top di tampilan mobile -->
@@ -48,6 +47,7 @@
             <!-- Responsive Icon Size -->
             <div class="bg-blue-100 rounded-full p-0 mb-4">
                 <i class='bx bxs-user-circle text-[100px] md:text-[150px] lg:text-[200px]'></i>
+
             </div>
         </div>
         <!-- Right Panel (Form) -->
@@ -94,5 +94,5 @@
         </div>
     </div>
 </body>
-
 </html>
+

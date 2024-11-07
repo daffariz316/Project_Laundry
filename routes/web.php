@@ -95,6 +95,8 @@ Route::get('user/servis', [DashboardController::class, 'servis'])->name('user.se
 Route::get('user/antrian', [DashboardController::class, 'antrian']);
 // Rute untuk menampilkan waiting list di pengguna
 Route::get('/user/antrian', [WaitingController::class, 'showWaitings'])->name('user.waiting');
+Route::get('/user/contact', [UserController::class, 'showContactPage'])->name('contact.page');
+
 
 
 // Route::middleware(['auth'])->group(function () {

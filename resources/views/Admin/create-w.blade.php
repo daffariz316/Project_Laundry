@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="flex justify-center items-center min-h-screen m-0 bg-sky-300">
-    <div class="w-3/4 p-5 ">
+    <div class="w-96 p-5 border border-gray-300 rounded-lg bg-white shadow-lg">
         <h1 class="text-center text-2xl mb-5">Tambah Data Waiting</h1>
         <form action="{{ route('waitings.store') }}" method="POST">
             @csrf
