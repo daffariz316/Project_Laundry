@@ -12,7 +12,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- favicon -->
-     <link rel="shortcut icon" href="{{asset('assets/img/icon.jpg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/img/logoyuma2 1.png') }}" type="image/x-icon">
+
     <!-- font awesome cdn-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -150,17 +151,43 @@
         </div>
     </div>
 </section>
-
-<!-- box section -->
-<section class="bg-[#F7FEFF] py-7">
-    <div class="container mx-auto text-center p-4">
-        <h2 class="text-3xl font-bold mb-8 text-blacktext text-[24px] md:text-[36px]">Mengapa Memilih Yuma Laundry</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Box 1: Detergen Unggulan -->
-            <div class="bg-[#D9D9D9] p-6 rounded-lg shadow-lg" data-aos="fade-up"
-            data-aos-duration="1500" data-aos-delay="200" data-aos-anchor-placement="center-bottom">
-                <h3 class="text-xl font-semibold text-black mb-4">Detergen Unggulan</h3>
-                <p class="text-gray-700">Kami menggunakan detergen yang lebih ramah lingkungan berbahan dasar Methyl Esther Sulfonate (MES) yang berasal dari bahan nabati namun memiliki daya ampuh yang efektif mengangkat kotoran membandel pada pakaian.</p>
+    <div id="content">
+        <!-- Hero Section -->
+        <section class="bg-[#F7FEFF]" id="content">
+            <div class=" mx-auto flex flex-col md:flex-row items-start justify-between font-medium">
+                <!-- Text Section -->
+                <div class="md:w-1/2 space-y-4 px-4 md:pt-10 mb-10 text-[14px] md:text-[16px]" data-aos="fade-right"
+                    data-aos-duration="1500">
+                    <h1 class="text-4xl font-bold text-black text-[24px] md:text-[36px]">Cuci Hari Ini, Tampil Percaya
+                        Diri</h1>
+                    <p class="text-black">Yuma Laundry didirikan pada tahun 2018 di Malabar dan saat ini berlokasi di
+                        Artzimar 1. Awalnya menargetkan mahasiswa, usaha ini kini berfokus pada pelayanan rumah tangga,
+                        khususnya untuk perlengkapan bayi, serta menjalin kerja sama dengan klinik kecantikan.</p>
+                    <div class="bg-[#0F67B1] text-white py-2 px-4 inline-block rounded-full">
+                        Solusi Tepat untuk Perlengkapan Bayi dan Rumah Tangga
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-1/2">
+                            <p class="text-2xl font-bold">4049</p>
+                            <p class="text-[#0F67B1]">Pengunjung Yuma Laundry dari Februari 2024 sampai Oktober 2024</p>
+                        </div>
+                        <div class="w-1/2">
+                            <p class="text-2xl font-bold">6Th</p>
+                            <p class="text-[#0F67B1]">Sudah berdiri sejak tahun 2018 </p>
+                        </div>
+                    </div>
+                    <div class="space-x-4 mt-4">
+                        <a href="https://wa.me/6281809591059?text=Halo%20kami%20ingin%20bertanya%20tentang%20layanan%20Anda"
+                            class="bg-[#0F67B1] text-white py-2 px-4 rounded-lg hover:bg-[#3FA2F6]">Hubungi Kami</a>
+                        <a href="{{ route('user.servis') }}"
+                            class="bg-[#0F67B1] text-white py-2 px-4 rounded-lg hover:bg-[#3FA2F6]">Layanan Kami</a>
+                    </div>
+                </div>
+                <!-- Image Section -->
+                <div class="md:w-1/2 flex justify-end -mt-3" data-aos="fade-left" data-aos-duration="1500">
+                    <img src="{{ asset('assets/img/Group_34.png') }}" alt="Mesin Cuci"
+                        class="max-w-[350px] w-auto hidden md:block"> <!-- Menggunakan kelas hidden dan md:block -->
+                </div>
             </div>
             <!-- Box 2: Layanan Lengkap -->
             <div class="bg-[#D9D9D9] p-6 rounded-lg shadow-lg" data-aos="fade-up"
